@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="onl()">
+    
+   
+    <div class="main1">
+        
+        <button id="mybtn">News API by Asif</button>
+         
+            
+                <p class="btn">
+                    <input type="text" name="search" id="search"  placeholder="Search a keyword i.e BTC">
+                    <input type="button" class="sbtn" onclick="search()" value="Submit">
+                </p>
+             <h2 id="txt0"></h2>
+            <p id="p0"></p>
+            <h2 id="txt1"></h2>
+            <p id="p1"></p>
+            <h2 id="txt2"></h2>
+            <p id="p2"></p>
+            <h2 id="txt3"></h2>
+            <p id="p3"></p>
+            <h2 id="txt4"></h2>
+            <p id="p4"></p>
+
+            <h2 id="txt5"></h2>
+            <p id="p5"></p>
+            <h2 id="txt6"></h2>
+            <p id="p6"></p>
+            <h2 id="txt7"></h2>
+            <p id="p7"></p>
+            <h2 id="txt8"></h2>
+            <p id="p8"></p>
+
+        </div>
+        
+  
+
+
+
+
+<script>
+
+
+//main functionality
+
+
+    //Creating Onload Function
+    function onl () {
+        const options = {
+	method: 'GET',
+	headers: {
+		'X-BingApis-SDK': 'true',
+		'X-RapidAPI-Key': '12f7f36fbbmshb5384e520e260dap1ac6c7jsn84c2d2f84776',
+		'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+	}
+};
+
+fetch('https://bing-news-search1.p.rapidapi.com/news?safeSearch=Off&textFormat=Raw', options)
+    .then(response => {
+        return response.json()
+    })
+	.then(data => {
+        console.log(data.value)
+        
+         
+         for (let x = 0; x<10;x++) {
+            
+         document.getElementById(`txt${x}`).innerHTML=`${data.value[x].description}  `
+         document.getElementById(`p${x}`).innerHTML=`${data.value[x].description} <a href="${data.value[x].url}">read more </a>`
+         }
+        
+    })
+	.catch(err => console.error(err));
+    
+
+
+
+
+
+      }  
+
+      
+      // Search Funcion
+      function search() {
+        const options = {
+	method: 'GET',
+	headers: {
+		'X-BingApis-SDK': 'true',
+		'X-RapidAPI-Key': '12f7f36fbbmshb5384e520e260dap1ac6c7jsn84c2d2f84776',
+		'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+	}
+};
+ let a = document.getElementById("search").value
+fetch(`https://bing-news-search1.p.rapidapi.com/news/search?q=${a}&freshness=Day&textFormat=Raw&safeSearch=Off`, options)
+	.then(response =>{
+     return response.json()
+     })
+	.then(data => {
+        console.log(data)
+        for (let x=0;x<10;x++){
+            document.getElementById(`txt${x}`).innerHTML=`${data.value[x].description}  `
+         document.getElementById(`p${x}`).innerHTML=`${data.value[x].description} <a href="${data.value[x].url}">read more </a>`
+        }
+    })
+	.catch(err => console.error(err));
+       
+        
+      }
+
+
+
+
+
+
+</script>
+</body>
+</html>

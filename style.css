@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=libre+Baskerville&display=swap");
+
+body{
+    margin: 0%;
+    padding: 0%;
+    color: white;
+    font-family: "Lato", sans-serif;
+    background-color: #4DB6AC;
+}
+.main1{
+    padding: 20px;
+}
+input{
+    outline: none;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 17px;
+}
+#mybtn{
+    
+    margin-left: 50%;
+    margin-top: 5px;
+    font-size: 20px;
+    padding: 5px;
+    border: 2px solid white;
+    display: block;
+    
+    border-radius: 30px;
+   
+    
+}
+.sbtn{
+    color: black;
+    background-color: #4DB6AC
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 2% 69%;
+    width: 22%;
+    border: 1px solid black;
+}
+.btn{
+    margin-left: 70%;
+}
+#search{
+    margin: -67%
+}
